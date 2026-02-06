@@ -26,7 +26,10 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip setuptools
-        pip install flake8==6.0.0 flake8-isort==6.0.0
+        # Устанавливаем только flake8, без устаревшего flake8-isort
+        pip install flake8==6.0.0
+        # Если нужна проверка импортов, устанавливаем isort отдельно
+        pip install isort==5.13.2
     # Запускаем flake8
     - name: Test with flake8
       # Вызываем flake8 и указываем ему,
